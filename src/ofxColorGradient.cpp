@@ -41,7 +41,9 @@ ofColor ofxColorGradient::getColorAtPercent( float percent ){
 	float aux = (float)leftColor * percentPerColor;
 	float percentInRange = 1.0f - (percent - aux) / percentPerColor; //(percent - aux) should always be < 0
 
-	return gradientBar[leftColor] * percentInRange + gradientBar[rightColor] * (1.0f - percentInRange );
+	result = gradientBar[leftColor] * percentInRange + gradientBar[rightColor] * (1.0f - percentInRange );
+	result.a = gradientBar[leftColor].a * percentInRange + gradientBar[rightColor].a * (1.0f - percentInRange );
+	return result;
 }
 
 
