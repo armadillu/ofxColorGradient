@@ -28,18 +28,17 @@ bool ofxColorGradient::replaceColorAtIndex( int index, ofColor newColor ){
 
 void ofxColorGradient::drawDebug( float x, float y, float w, float h){
 
-	float step = w / 50.0f;
-
+	int numSteps = 25;
+	float step = w / numSteps;
 	ofMesh m;
 	m.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 
-	for(float i = 0; i < w; i += step){
-		float left = i / (float)w;
-		ofColor color = getColorAtPercent(left);
+	for(float i = 0; i <= numSteps; i++){
+		ofColor color = getColorAtPercent( i / (float)numSteps );
 		m.addColor(color);
-		m.addVertex(ofVec2f( x + i, y +  0) );
+		m.addVertex(ofVec2f( x + i * step, y +  0) );
 		m.addColor(color);
-		m.addVertex(ofVec2f( x + i, y + h) );
+		m.addVertex(ofVec2f( x + i * step, y + h) );
 	}
 
 	m.draw();
