@@ -12,6 +12,11 @@ void ofxColorGradient::reset(){
 }
 
 
+int ofxColorGradient::getNumColors(){
+	return gradientBar.size();
+}
+
+
 bool ofxColorGradient::replaceColorAtIndex( int index, ofColor newColor ){
 
 	if ( index < gradientBar.size() && index >=0 ){
@@ -21,6 +26,24 @@ bool ofxColorGradient::replaceColorAtIndex( int index, ofColor newColor ){
 		return false;
 }
 
+void ofxColorGradient::drawDebug( float x, float y, float w, float h){
+
+	float step = w / 50.0f;
+
+	ofMesh m;
+	m.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+
+	for(float i = 0; i < w; i += step){
+		float left = i / (float)w;
+		ofColor color = getColorAtPercent(left);
+		m.addColor(color);
+		m.addVertex(ofVec2f( x + i, y +  0) );
+		m.addColor(color);
+		m.addVertex(ofVec2f( x + i, y + h) );
+	}
+
+	m.draw();
+}
 
 ofColor ofxColorGradient::getColorAtPercent( float percent ){
 
