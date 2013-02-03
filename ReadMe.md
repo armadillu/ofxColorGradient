@@ -16,3 +16,4 @@ Simple of addon to create linear color gradients
 		//draw using that color
 	}
 	
+It also allows creating a gradient from an image.
