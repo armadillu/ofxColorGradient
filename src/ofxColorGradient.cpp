@@ -6,6 +6,16 @@ void ofxColorGradient::addColor( ofColor newColor ){
 	gradientBar.push_back(newColor);
 }
 
+void ofxColorGradient::loadFromImage(ofImage img, int skipCount){
+
+	if (skipCount < 1) skipCount = 1;
+	int w = img.getWidth();
+	int h = img.getHeight();
+
+	for (int i = 0; i < w; i += skipCount) {
+		gradientBar.push_back( img.getColor(i, h/2) );
+	}
+}
 
 void ofxColorGradient::reset(){
 	gradientBar.clear();

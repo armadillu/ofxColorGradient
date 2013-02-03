@@ -1,4 +1,4 @@
-Simple of addon to create linear color gradients
+Simple of addon to create linear color gradients 
 
 	ofxColorGradient gradient;
 	

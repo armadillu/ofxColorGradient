@@ -9,6 +9,7 @@ class ofxColorGradient{
 
 	public:
 
+		void loadFromImage(ofImage img, int skipCount); /// supply an image to be scanned, see example
 		void addColor(ofColor newColor); ///colors are added from left to right; so add wisely!
 		void reset();					 ///fully empties the gradient bar
 		bool replaceColorAtIndex(int index, ofColor newColor);
@@ -17,7 +18,8 @@ class ofxColorGradient{
 		ofColor getColorAtPercent(float percent);	//percent[0..1] defines the whole range of the gradient bar, 0 being left, 1 being right
 
 		void drawDebug( float x, float y, float w, float h);
-	private:
+
+private:
 
 		vector <ofColor>  gradientBar;
 		
