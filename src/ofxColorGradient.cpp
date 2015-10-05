@@ -68,7 +68,7 @@ ofColor ofxColorGradient::getColorAtPercent( float percent ){
 		return result;
 
 	int leftColor = (int)floor ( percent * (float)(numC - 1.0f) );
-	int rightColor = leftColor + 1.0f;
+	int rightColor = ofClamp(leftColor + 1.0f, 0, gradientBar.size() - 1);
 	float percentPerColor =  1.0f / (numC - 1.0f);
 	float aux = (float)leftColor * percentPerColor;
 	float percentInRange = 1.0f - (percent - aux) / percentPerColor; //(percent - aux) should always be < 0
