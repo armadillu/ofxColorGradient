@@ -1,6 +1,6 @@
 Simple of addon to create linear color gradients 
 
-	ofxColorGradient gradient;
+	ofxColorGradient<ofColor> gradient;
 	
 	//first, fill in the gradient with colors, left to right
 	gradient.addColor( ofColor::red );

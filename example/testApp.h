@@ -8,5 +8,5 @@ class testApp : public ofBaseApp{
 		void setup();
 		void draw();
 		
-		ofxColorGradient gradient;
+		ofxColorGradient<ofColor> gradient;
 };
