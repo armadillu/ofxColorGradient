@@ -5,24 +5,117 @@
 
 #include "ofMain.h"
 
+template <class ColorType> /*ofColor or ofFloatColor*/
 class ofxColorGradient{
+public:
 
-	public:
+	/// supply an image to be scanned, see example
+	void loadFromImage(ofImage img, int skipCount){
+		if (skipCount < 1) skipCount = 1;
+		int w = img.getWidth();
+		int h = img.getHeight();
 
-		void loadFromImage(ofImage img, int skipCount); /// supply an image to be scanned, see example
-		void addColor(ofColor newColor); ///colors are added from left to right; so add wisely!
-		void reset();					 ///fully empties the gradient bar
-		bool replaceColorAtIndex(int index, ofColor newColor);
-		int getNumColors();
+		for (int i = 0; i < w; i += skipCount) {
+			gradientBar.push_back( img.getColor(i, h/2) );
+		}
 
-		ofColor getColorAtPercent(float percent);	//percent[0..1] defines the whole range of the gradient bar, 0 being left, 1 being right
+	}
 
-		void drawDebug( float x, float y, float w, float h);
+	///colors are added from left to right; so add wisely!
+	void addColor(ColorType newColor){
+		gradientBar.push_back(newColor);
+	}
+
+
+	///fully empties the gradient bar
+	void reset(){
+		gradientBar.clear();
+	}
+
+
+	bool replaceColorAtIndex(int index, ColorType newColor){
+
+		if ( index < gradientBar.size() && index >=0 ){
+			gradientBar[index] = newColor;
+			return true;
+		}else
+			return false;
+	}
+
+
+	int getNumColors(){
+		return gradientBar.size();
+	}
+
+
+	ColorType getColorAtPercent(float percent){	//percent[0..1] defines the whole range of the gradient bar, 0 being left, 1 being right
+
+		ColorType result;
+		int numC = gradientBar.size();
+
+		// handle special cases
+		if (numC == 0)
+			return result;
+		else if (numC == 1)
+			return gradientBar[0];
+
+		int indexMax = numC - 1;
+
+		float pct = percent;
+
+		if (pct > 0.0f){
+			pct = fmod(pct, 1.0f);
+		}else{
+			pct = 1.0f - fmod(-pct, 1.0f);
+		}
+
+		int leftColor = (int)floor(pct * (float)indexMax);
+		int rightColor = leftColor + 1;
+		if(rightColor > indexMax) rightColor = indexMax;
+
+		float percentPerColor =  1.0f / indexMax;
+
+		float percentInRange = 1.0f - (pct - leftColor * percentPerColor) / percentPerColor; //(percent - aux) should always be < 0
+		float iPercentInRange = 1.0f - percentInRange;
+
+		ColorType & leftC = gradientBar[leftColor];
+		ColorType & rightC = gradientBar[rightColor];
+
+		//this seems much slower !!
+		//result = leftC * percentInRange + rightC * iPercentInRange;
+
+		//doing it manually
+		result.r = leftC.r * percentInRange + rightC.r * iPercentInRange;
+		result.g = leftC.g * percentInRange + rightC.g * iPercentInRange;
+		result.b = leftC.b * percentInRange + rightC.b * iPercentInRange;
+		result.a = leftC.a * percentInRange + rightC.a * iPercentInRange;
+
+
+		return result;
+	}
+
+
+	void drawDebug( float x, float y, float w, float h){
+
+		int numSteps = 25;
+		float step = w / numSteps;
+		ofMesh m;
+		m.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+
+		for(float i = 0; i <= numSteps; i++){
+			ColorType color = getColorAtPercent( i / (float)numSteps );
+			m.addColor(color);
+			m.addVertex(ofVec2f( x + i * step, y +  0) );
+			m.addColor(color);
+			m.addVertex(ofVec2f( x + i * step, y + h) );
+		}
+		m.draw();
+	}
+
 
 private:
 
-		vector <ofColor>  gradientBar;
-		
+		vector <ColorType>  gradientBar;
 };
 
 #endif
