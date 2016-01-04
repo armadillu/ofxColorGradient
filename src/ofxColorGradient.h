@@ -48,7 +48,7 @@ public:
 	}
 
 
-	ColorType getColorAtPercent(float percent){	//percent[0..1] defines the whole range of the gradient bar, 0 being left, 1 being right
+	ColorType getColorAtPercent(float pct){	//percent[0..1] defines the whole range of the gradient bar, 0 being left, 1 being right
 
 		ColorType result;
 		int numC = gradientBar.size();
@@ -60,8 +60,6 @@ public:
 			return gradientBar[0];
 
 		int indexMax = numC - 1;
-
-		float pct = percent;
 
 		if (pct > 0.0f){
 			pct = fmod(pct, 1.0f);
@@ -89,7 +87,6 @@ public:
 		result.g = leftC.g * percentInRange + rightC.g * iPercentInRange;
 		result.b = leftC.b * percentInRange + rightC.b * iPercentInRange;
 		result.a = leftC.a * percentInRange + rightC.a * iPercentInRange;
-
 
 		return result;
 	}
