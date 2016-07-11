@@ -35,10 +35,10 @@ class ofxColorGradient {
 			return false;
 	}
 
-	int getNumColors() { return gradientBar.size(); }
+	int getNumColors() const { return gradientBar.size(); }
 
 	//percent[0..1] defines the whole range of the gradient bar, 0 being left, 1 being right
-	ColorType getColorAtPercent(float pct) {
+	ColorType getColorAtPercent(float pct) const {
 
 		ColorType result;
 		int numC = gradientBar.size();
@@ -70,8 +70,8 @@ class ofxColorGradient {
 			1.0f - (pct - leftColor * percentPerColor) / percentPerColor; //(percent - aux) should always be < 0
 		float iPercentInRange = 1.0f - percentInRange;
 
-		ColorType &leftC = gradientBar[leftColor];
-		ColorType &rightC = gradientBar[rightColor];
+		const ColorType &leftC = gradientBar[leftColor];
+		const ColorType &rightC = gradientBar[rightColor];
 
 		// this seems much slower !!
 		// result = leftC * percentInRange + rightC * iPercentInRange;
@@ -85,7 +85,7 @@ class ofxColorGradient {
 		return result;
 	}
 
-	ColorType& getColorCacheAtPercent(float pct){
+	ColorType& getColorCacheAtPercent(float pct) const{
 
 		float pctRemapped = pct;
 		if(pctRemapped >= 0.0f) {
@@ -102,13 +102,13 @@ class ofxColorGradient {
 
 
 	///no safety checks - make sure pct is [0..1] or YOU WILL CRASH!
-	ColorType getColorCacheAtPercent_01(float pct){
+	ColorType getColorCacheAtPercent_01(float pct) const{
 		int index = pct * (cache.size() - 1);
 		return cache[index];
 	}
 
 
-	void drawDebug(float x, float y, float w, float h, int numSteps = 25) {
+	void drawDebug(float x, float y, float w, float h, int numSteps = 25) const{
 
 		float step = w / numSteps;
 		ofMesh m;
