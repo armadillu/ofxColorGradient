@@ -119,9 +119,9 @@ class ofxColorGradient {
 		for(float i = 0; i <= numSteps; i++) {
 			ColorType color = getColorAtPercent(i / (float)numSteps);
 			m.addColor(color);
-			m.addVertex(ofVec2f(x + i * step, y + 0));
+			m.addVertex(ofVec3f(x + i * step, y + 0));
 			m.addColor(color);
-			m.addVertex(ofVec2f(x + i * step, y + h));
+			m.addVertex(ofVec3f(x + i * step, y + h));
 		}
 		m.draw();
 	}
