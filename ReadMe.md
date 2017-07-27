@@ -1,4 +1,9 @@
-Simple of addon to create linear color gradients 
+# ofxColorGradient
+
+[![Build Status](https://travis-ci.org/armadillu/ofxColorGradient.svg?branch=master)](https://travis-ci.org/armadillu/ofxColorGradient)
+
+
+Simple OpenFrameworks addon to create linear color gradients 
 
 	ofxColorGradient<ofColor> gradient;
 	

@@ -1,7 +1,7 @@
-#include "testApp.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void ofApp::setup(){
 	
 	ofSetVerticalSync(true);
 	ofBackground(0, 0, 0);
@@ -28,6 +28,6 @@ void testApp::setup(){
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void ofApp::draw(){
 	gradient.drawDebug(0, 0, ofGetWidth(), ofGetHeight());
 }
