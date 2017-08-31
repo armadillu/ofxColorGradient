@@ -137,8 +137,8 @@ class ofxColorGradient {
 	}
 
   private:
-	vector<ColorType> gradientBar;
-	vector<ColorType> cache;
+	std::vector<ColorType> gradientBar;
+	std::vector<ColorType> cache;
 };
 
 #endif
