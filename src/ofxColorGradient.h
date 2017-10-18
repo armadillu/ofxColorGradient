@@ -9,7 +9,7 @@ template <class ColorType> /*ofColor or ofFloatColor*/
 class ofxColorGradient {
   public:
 	/// supply an image to be scanned, see example
-	void loadFromImage(ofImage img, int skipCount) {
+	void loadFromImage(const ofPixels & img, int skipCount) {
 		if(skipCount < 1)
 			skipCount = 1;
 		int w = img.getWidth();
