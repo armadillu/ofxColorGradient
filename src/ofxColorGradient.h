@@ -21,10 +21,12 @@ class ofxColorGradient {
 	}
 
 	/// colors are added from left to right; so add wisely!
-	void addColor(ColorType newColor) { gradientBar.push_back(newColor); }
+	void addColor(ColorType & newColor) { gradientBar.push_back(newColor); }
 
 	/// fully empties the gradient bar
 	void reset() { gradientBar.clear(); }
+
+	void setHardMode(bool h){ hardMode = h;}
 
 	bool replaceColorAtIndex(int index, ColorType newColor) {
 
@@ -57,6 +59,13 @@ class ofxColorGradient {
 			}
 		} else {
 			pct = 1.0f - fmod(-pct, 1.0f);
+		}
+
+		if(hardMode){
+			float ratio = float(gradientBar.size()) / float(gradientBar.size() - 1) ;
+			float hardPct = ofClamp(ratio * pct, 0, 1);
+			int index = (int)floor(hardPct * (float)indexMax);
+			return gradientBar[index];
 		}
 
 		int leftColor = (int)floor(pct * (float)indexMax);
@@ -139,6 +148,7 @@ class ofxColorGradient {
   private:
 	std::vector<ColorType> gradientBar;
 	std::vector<ColorType> cache;
+	bool hardMode = false; //if true, there will be no interpolation between colors
 };
 
 #endif
