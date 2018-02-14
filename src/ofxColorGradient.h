@@ -94,7 +94,7 @@ class ofxColorGradient {
 		return result;
 	}
 
-	ColorType& getColorCacheAtPercent(float pct) const{
+	ColorType & getColorCacheAtPercent(float pct){
 
 		float pctRemapped = pct;
 		if(pctRemapped >= 0.0f) {
@@ -111,7 +111,7 @@ class ofxColorGradient {
 
 
 	///no safety checks - make sure pct is [0..1] or YOU WILL CRASH!
-	ColorType getColorCacheAtPercent_01(float pct) const{
+	ColorType & getColorCacheAtPercent_01(float pct){
 		int index = pct * (cache.size() - 1);
 		return cache[index];
 	}
