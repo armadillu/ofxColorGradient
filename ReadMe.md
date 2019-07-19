@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/armadillu/ofxColorGradient.svg?branch=master)](https://travis-ci.org/armadillu/ofxColorGradient)
 
 added in this fork:
+
     // draw orientation (default is horizontal)
     gradient.setDrawVertical(true);
 
