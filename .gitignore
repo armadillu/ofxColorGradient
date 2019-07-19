@@ -1,0 +1,140 @@
+#########################
+# general patterns
+#########################
+
+docs/html
+docs/tagfile.xml
+
+*/bin/*
+!*/bin/data/
+
+# for bin folder in root
+/bin/*
+!/bin/data/
+
+*.XML
+*.xml
+*.JSON
+*.json
+
+[Bb]uild/
+[Oo]bj/
+*.o
+[Dd]ebug*/
+[Rr]elease*/
+*.mode*
+*.app/
+*.pyc
+.svn/
+
+#########################
+# IDE
+#########################
+
+# XCode
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+#XCode 4
+xcuserdata
+*.xcworkspace
+
+# AppCode
+*.idea
+*.idea/
+*.idea/*
+*.idea/
+
+# Code::Blocks
+*.depend
+*.layout
+*.cbTemp
+
+# Visual Studio
+*.sdf
+*.opensdf
+*.suo
+*.pdb
+*.ilk
+*.aps
+ipch/
+
+# Eclipse
+.metadata
+local.properties
+.externalToolBuilders
+
+# Codelite
+*.session
+*.tags
+*.workspace.*
+
+#########################
+# operating system
+#########################
+
+# Linux
+*~
+# KDE
+.directory
+.AppleDouble
+
+# OSX
+.DS_Store
+*.swp
+*~.nib
+# Thumbnails
+._*
+
+# Windows
+# Windows image file caches
+Thumbs.db
+# Folder config file
+Desktop.ini
+
+#Android
+.csettings
+
+#########################
+# packages
+#########################
+
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+1_example_panels/.idea/workspace.xml
+1_example_panels/1_example_panels.xcodeproj/project.pbxproj
+1_example_panels/bin/data/controlPoints.csv
+1_example_panels/.idea/workspace.xml
+1_example_panels/.idea/workspace.xml
+1_example_panels/.idea/workspace.xml
+*.json
+*.json
+1_example_panels/.idea/workspace.xml
+1_example_panels/.idea/workspace.xml
+1_example_panels/.idea/workspace.xml
+2_example_datGui/.idea/workspace.xml
+1_example_panels/.idea/workspace.xml
+2_example_datGui/.idea/workspace.xml
+1_example_panels/.idea/workspace.xml
+2_example_datGui/.idea/workspace.xml
+2_example_datGui/.idea/workspace.xml
+2_example_datGui/2_example_datGui.xcodeproj/project.pbxproj
+2_example_datGui/2_example_datGui.xcodeproj/xcshareddata/xcschemes/2_example_datGui Debug.xcscheme
+2_example_datGui/.idea/runConfigurations/2_example_datGui_Release.xml
+2_example_datGui/.idea/workspace.xml
+2_example_datGui/2_example_datGui.xcodeproj/xcshareddata/xcschemes/2_example_datGui Release.xcscheme
