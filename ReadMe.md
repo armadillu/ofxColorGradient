@@ -7,7 +7,7 @@ added in this fork:
     // draw orientation (default is horizontal)
     gradient.setDrawVertical(true);
 
-    // draw gradeint direction (invert default direction)
+    // draw gradient direction (invert default direction)
     gradient.setDrawDirFlip(true);
     
 Simple OpenFrameworks addon to create linear color gradients 
