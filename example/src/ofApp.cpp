@@ -20,6 +20,12 @@ void ofApp::setup(){
 	//empty
 	gradient.reset();
 
+	// draw orientation (default is horizontal)
+    gradient.setDrawVertical(true);
+
+    // draw gradint direction (invert default direction)
+    gradient.setDrawDirFlip(true);
+
 	//or load from an image
 	ofImage img;
 	img.loadImage("falseColor.png");
