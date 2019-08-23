@@ -25,6 +25,9 @@ void ofApp::setup(){
 	img.loadImage("falseColor.png");
 	gradient.loadFromImage(img, 3);
 
+	//or setup as google's turbo https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html
+	gradient.setupAsTurbo();
+
 }
 
 //--------------------------------------------------------------

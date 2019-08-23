@@ -23,6 +23,8 @@ class ofxColorGradient {
 	/// colors are added from left to right; so add wisely!
 	void addColor(const ColorType & newColor) { gradientBar.push_back(newColor); }
 
+	void setupAsTurbo();
+
 	/// fully empties the gradient bar
 	void reset() { gradientBar.clear(); }
 

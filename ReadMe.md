@@ -22,3 +22,11 @@ Simple OpenFrameworks addon to create linear color gradients
 	}
 	
 It also allows creating a gradient from an image.
+
+It also provides Google's [Turbo Rainbow Colormap](https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html), which comes with an Apache-2.0 license.
+
+# License
+
+ofxColorGradient is made available under the [MIT](http://opensource.org/licenses/MIT) license.
+
+It includes Google's [Turbo Rainbow Colormap](https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html), which uses the Apache-2.0 license.
