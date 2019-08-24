@@ -20,23 +20,20 @@ void ofApp::setup(){
 	//empty
 	gradient.reset();
 
-	// draw orientation (default is horizontal)
-    gradient.setDrawVertical(true);
-
-    // draw gradint direction (invert default direction)
-    gradient.setDrawDirFlip(true);
-
 	//or load from an image
 	ofImage img;
-	img.loadImage("falseColor.png");
+	ofLoadImage(img, "falseColor.png");
+
 	gradient.loadFromImage(img, 3);
 
 	//or setup as google's turbo https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html
-	gradient.setupAsTurbo();
+	gradient.setupAsTurbo(10); //with 10 samples
+
+	gradient.setHardMode(false);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	gradient.drawDebug(0, 0, ofGetWidth(), ofGetHeight());
+	gradient.drawDebug(0, 0, ofGetWidth(), ofGetHeight(), 50);
 }
